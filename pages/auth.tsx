@@ -1,5 +1,7 @@
 import { useCallback, useState } from "react"
 import Input from "../components/Input"
+import axios from 'axios'
+
 
 const Auth = () =>{
     const [email, setEmail]= useState('')
@@ -10,6 +12,20 @@ const Auth = () =>{
 
     const toggleVariant = useCallback(()=>{
         setVariant((currentVariant) => currentVariant =='login' ? 'register' : 'login')
+    },[])
+
+    const register = useCallback(async()=>{
+        try{
+            await axios.post('/api/register',{
+                email,
+                name,
+                password
+            })
+
+        }catch(error){
+            console.log(error)
+        }
+
     },[])
 
     return(
