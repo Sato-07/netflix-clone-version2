@@ -25,11 +25,11 @@ const Auth = () =>{
                     </h2>
                     <div className="flex flex-col gap-4">
                         {variant == 'register' &&
-                            <Input label="Username" onChange={(ev)=> setName(ev.target.value)} id="name" value={name}/>
+                            <Input label="Username" onChange={(ev:any)=> setName(ev.target.value)} id="name" value={name}/>
                         }
                         
-                        <Input label="Email" onChange={(ev)=> setEmail(ev.target.value)} id="email" type="email" value={email}/>
-                        <Input label="Password" onChange={(ev)=> setPassword(ev.target.value)} id="password" type="password" value={password}/>
+                        <Input label="Email" onChange={(ev:any)=> setEmail(ev.target.value)} id="email" type="email" value={email}/>
+                        <Input label="Password" onChange={(ev:any)=> setPassword(ev.target.value)} id="password" type="password" value={password}/>
 
                     </div>
                     <button className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
