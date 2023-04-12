@@ -1,6 +1,8 @@
 import bcrypt from 'bcrypt'
-import prismadb from '@/lib/prismadb'
 import { NextApiRequest, NextApiResponse } from 'next'
+
+import prismadb from '../libs/prismadb'
+
 
 export default async function handler(req:NextApiRequest, res:NextApiResponse){
     if(req.method !== 'POST'){
@@ -24,13 +26,13 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse){
         const user = await prismadb.user.create({
             data:{
                 email,
+                emailverified: new Date(),
                 name,
                 hashedPassword,
                 image:'',
-                emailVerified: new Date(),
             }
         })
-
+        console.log('tout est ok')
         return res.status(200).json(user)
 
     }catch(error){
